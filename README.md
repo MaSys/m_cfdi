@@ -5,7 +5,7 @@ CFDI Mexico.
 
 ```ruby
 
-class InvoiceOne
+class Invoice
   def initialize(args = {})
     @invoice = args[:invoice] # assign invoice object from args.
     @cer = args[:cer] # path to .cer file.
@@ -123,5 +123,20 @@ class InvoiceOne
     @invoice_cfdi.validate_xml
   end
 end
+
+```
+
+and then, you can call this call by:
+
+```ruby
+
+@invoice = '{YOUR INVOICE OBJECT}'
+@in = Invoice.new(
+  invoice: @invoice, cer: 'CERTIFICATION_FILE_PATH',
+  pem: 'PEM_FILE_PATH",
+  password: 'PASSWORD'
+)
+@in.xml
+@in.original_string
 
 ```
