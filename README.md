@@ -3,6 +3,19 @@
 
 CFDI GEM, to generate XML file for invoice, all you have to do, is to send the xml string to your PAC and receive the final xml file then save it.
 
+# Installation:
+
+In your gem file:
+```git
+gem 'cfdi'
+```
+
+or
+
+```git
+gem 'cfdi', git: 'https://github.com/MaSys/cfdi.git'
+```
+
 # Usage:
 
 ```ruby
