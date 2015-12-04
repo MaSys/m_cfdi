@@ -1,10 +1,10 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'CFDI/version'
+require 'cfdi/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "CFDI"
+  spec.name          = "cfdi"
   spec.version       = CFDI::VERSION
   spec.authors       = ["Yaser Almasri"]
   spec.email         = ["info@masys.co"]
