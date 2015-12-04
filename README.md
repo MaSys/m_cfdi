@@ -7,18 +7,18 @@ CFDI GEM, to generate XML file for invoice, all you have to do, is to send the x
 
 In your gem file:
 ```git
-gem 'cfdi' # NOT UPLOADED
+gem 'm_cfdi' # NOT UPLOADED
 ```
 
 or
 
 ```git
-gem 'cfdi', git: 'https://github.com/MaSys/cfdi.git'
+gem 'm_cfdi', git: 'https://github.com/MaSys/cfdi.git'
 ```
 
 or install it directly from your terminal:
 ```git
-gem install cfdi
+gem install m_cfdi
 ```
 
 # Usage:
@@ -40,7 +40,7 @@ class Invoice
   end
 
   def invoice_cfdi
-    @invoice_cfdi = CFDI::Invoice.new(
+    @invoice_cfdi = MCFDI::Invoice.new(
       folio: @invoice.folio, series: @invoice.series,
       created_at: @invoice.created_at,
       proof_type: I18n.t("invoice_proof_types.#{@invoice.proof_type}"),
@@ -73,7 +73,7 @@ class Invoice
 
   def add_concepts
     @invoice.invoice_items.each do |ii|
-      @invoice_cfdi.concepts << CFDI::Concept.new(
+      @invoice_cfdi.concepts << MCFDI::Concept.new(
         quantity: ii.quantity, measure_unit: ii.measure_unit,
         code: ii.code, name: ii.name, price: ii.price, import: ii.import
       )
@@ -88,29 +88,29 @@ class Invoice
   end
 
   def iva
-    @invoice_cfdi.taxes.transferred << CFDI::Transferred.new(
+    @invoice_cfdi.taxes.transferred << MCFDI::Transferred.new(
       tax: 'IVA', rate: 16, import: @invoice.iva)
   end
 
   def ieps
-    @invoice_cfdi.taxes.transferred << CFDI::Transferred.new(
+    @invoice_cfdi.taxes.transferred << MCFDI::Transferred.new(
       tax: 'IEPS', rate: 12, import: @invoice.ieps)
   end
 
   def detained_iva
-    @invoice_cfdi.taxes.detained << CFDI::Detained.new(
+    @invoice_cfdi.taxes.detained << MCFDI::Detained.new(
       tax: 'IVA', rate: 16, import: @invoice.detained_iva)
   end
 
   def isr
-    @invoice_cfdi.taxes.detained << CFDI::Detained.new(
+    @invoice_cfdi.taxes.detained << MCFDI::Detained.new(
       tax: 'ISR', rate: 16, import: @invoice.isr)
   end
 
   # create certificate and stamp for invoice.
   def certificate_invoice
-    certificate = CFDI::Certificate.new(@cer)
-    key = CFDI::Key.new(@pem, @pass)
+    certificate = MCFDI::Certificate.new(@cer)
+    key = MCFDI::Key.new(@pem, @pass)
     certificate.certificate(@invoice_cfdi)
     key.seal(@invoice_cfdi)
   end
