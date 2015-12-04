@@ -6,7 +6,7 @@
 # importe -> Importe
 
 #
-module CFDI
+module MCFDI
   # Concepts Class
   class Concept < Base
     attr_accessor :code, :name, :measure_unit, :quantity, :price, :import

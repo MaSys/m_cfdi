@@ -4,13 +4,13 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'cfdi/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "cfdi"
-  spec.version       = CFDI::VERSION
+  spec.name          = "m_cfdi"
+  spec.version       = MCFDI::VERSION
   spec.authors       = ["Yaser Almasri"]
   spec.email         = ["info@masys.co"]
 
   spec.summary       = %q{CFDI Mexico.}
-  spec.description   = %q{CFDI Mexico, To generate XML files from invoices of Mexico.}
+  spec.description   = %q{CFDI Mexico, To generate XML files from invoices of Mexico, Comprobantes Fiscales Digitales por Internet}
   spec.homepage      = "https://github.com/MaSys/cfdi"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or

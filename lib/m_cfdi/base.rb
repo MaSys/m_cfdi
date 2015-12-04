@@ -1,4 +1,4 @@
-module CFDI
+module MCFDI
   class Base
     def self.attr_accessor(*vars)
       @attributes ||= []

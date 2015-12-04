@@ -20,7 +20,7 @@
 # addenda -> Addenda
 
 #
-module CFDI
+module MCFDI
   # Invoice Class the most important class.
   class Invoice < Base
     attr_accessor :version, :created_at, :proof_type, :payment_way,

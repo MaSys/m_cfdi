@@ -1,7 +1,7 @@
 # certificate_number -> noCertificado
 
 #
-module CFDI
+module MCFDI
   require 'openssl'
 
   # Certificate class to generate invoice certification from .cer.

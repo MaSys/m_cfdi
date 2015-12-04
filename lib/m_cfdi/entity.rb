@@ -4,7 +4,7 @@
 # issued_in -> Expedido en
 
 #
-module CFDI
+module MCFDI
   # Entity Class for transmitter and receptor
   class Entity < Base
     attr_accessor :rfc, :business_name, :fiscal_regime, :address, :issued_in

@@ -5,7 +5,7 @@
 # import -> Importe
 
 #
-module CFDI
+module MCFDI
   class Taxes < Base
     attr_accessor :transferred, :detained
     def initialize

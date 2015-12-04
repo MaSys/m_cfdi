@@ -1,4 +1,4 @@
-module CFDI
+module MCFDI
   # Address Class
   class Addenda < Base
     attr_accessor :name, :namespace, :xsd, :data

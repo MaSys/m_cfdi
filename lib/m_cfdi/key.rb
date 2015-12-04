@@ -1,4 +1,4 @@
-module CFDI
+module MCFDI
   require 'openssl'
   
   # openssl pkcs8 -inform DER -in file.key -passin pass:password >> file.pem

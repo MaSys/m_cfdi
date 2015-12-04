@@ -10,7 +10,7 @@
 # zip_code -> Codigo Postal
 
 #
-module CFDI
+module MCFDI
   # Address Class for transmitter and receptor.
   class Address < Base
     attr_accessor :street, :street_number, :interior_number, :neighborhood,

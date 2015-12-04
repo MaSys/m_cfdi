@@ -6,7 +6,7 @@
 # version
 
 #
-module CFDI
+module MCFDI
   # Complement Class
   class Complement < Base
 

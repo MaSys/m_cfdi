@@ -1,15 +1,15 @@
-require "cfdi/version"
-require "cfdi/base"
-require "cfdi/addenda"
-require "cfdi/address"
-require "cfdi/certificate"
-require "cfdi/complement"
-require "cfdi/concept"
-require "cfdi/entity"
-require "cfdi/key"
-require "cfdi/taxes"
-require "cfdi/invoice"
+require "m_cfdi/version"
+require "m_cfdi/base"
+require "m_cfdi/addenda"
+require "m_cfdi/address"
+require "m_cfdi/certificate"
+require "m_cfdi/complement"
+require "m_cfdi/concept"
+require "m_cfdi/entity"
+require "m_cfdi/key"
+require "m_cfdi/taxes"
+require "m_cfdi/invoice"
 
-module CFDI
+module MCFDI
   # Your code goes here...
 end
