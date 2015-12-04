@@ -13,7 +13,7 @@ gem 'm_cfdi' # NOT UPLOADED
 or
 
 ```git
-gem 'm_cfdi', git: 'https://github.com/MaSys/cfdi.git'
+gem 'm_cfdi', git: 'https://github.com/MaSys/m_cfdi.git'
 ```
 
 or install it directly from your terminal:
