@@ -161,3 +161,16 @@ to generate your `.pem` file:
 ```
 openssl pkcs8 -inform DET -in aaa010101aaa.key -passin pass:12345678a -out key.pem
 ```
+
+
+# TODO:
+* Create configuration class.
+
+
+# Contributing
+
+Fork it
+1. Create your feature branch (git checkout -b my-new-feature)
+2. Commit your changes (git commit -am 'Add some feature')
+3. Push to the branch (git push origin my-new-feature)
+4. Create new Pull Request
