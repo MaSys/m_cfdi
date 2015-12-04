@@ -126,7 +126,7 @@ end
 
 ```
 
-and then, you can call this call by:
+and then, you can call this class by:
 
 ```ruby
 
