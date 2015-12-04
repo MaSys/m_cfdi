@@ -23,6 +23,13 @@ gem install m_cfdi
 
 # Usage:
 
+Importante:
+```
+Dont't forgot to set TimeZone in your app.
+```
+You have to set timezone in your app to send the invoice date.
+if not, it will return an error.
+
 ```ruby
 
 class Invoice
