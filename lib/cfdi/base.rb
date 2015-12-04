@@ -10,10 +10,12 @@ module CFDI
       @attributes
     end
 
+    # return list of attr_accessors.
     def attributes
       self.class.attributes
     end
 
+    # return hash of attributes with values.
     def to_h
       h = {}
       attributes.each { |k| h[k] = send(k) }

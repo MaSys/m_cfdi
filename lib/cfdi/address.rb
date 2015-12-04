@@ -1,5 +1,17 @@
+# street -> Calle
+# street_number -> Numero Exterior
+# interior_number -> Numero Interior
+# neighborhood -> Colonia
+# location -> Localidad
+# reference -> Referencia
+# city -> Municipio
+# state -> Estado
+# country -> Pais
+# zip_code -> Codigo Postal
+
+#
 module CFDI
-  # Address Class
+  # Address Class for transmitter and receptor.
   class Address < Base
     attr_accessor :street, :street_number, :interior_number, :neighborhood,
                   :location, :reference, :city, :state, :country, :zip_code
@@ -8,6 +20,7 @@ module CFDI
       args.each { |key, value| send("#{key}=", value) }
     end
 
+    # return original string (cadena original) of the address.
     def original_string
       c = []
       self.attributes.each do |k|
@@ -16,10 +29,9 @@ module CFDI
         c << v
       end
       c
-      # [@street, @street_number, @interior_number, @neighborhood, @location,
-      #  @reference, @city, @state, @country, @zip_code]
     end
 
+    # return hash with values in spanish for the xml.
     def to_x
       { calle: @street, noExterior: @street_number,
         noInterior: @interior_number, colonia: @neighborhood,

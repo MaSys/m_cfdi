@@ -1,6 +1,10 @@
+# certificate_number -> noCertificado
+
+#
 module CFDI
   require 'openssl'
 
+  # Certificate class to generate invoice certification from .cer.
   class Certificate < OpenSSL::X509::Certificate
     
     # Certificate Number

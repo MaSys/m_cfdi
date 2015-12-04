@@ -1,3 +1,10 @@
+# transferred -> Impuestos trasladado
+# detained -> Impuestos retenidos
+# tax -> Nombre del Impuesto
+# rate -> Tasa
+# import -> Importe
+
+#
 module CFDI
   class Taxes < Base
     attr_accessor :transferred, :detained
@@ -6,16 +13,19 @@ module CFDI
       @detained = []
     end
 
+    # return total of all transferred taxes.
     def total_transferred
       return 0 unless @transferred.any?
       @transferred.map(&:import).reduce(:+)
     end
 
+    # return total of all detained taxes.
     def total_detained
       return 0 unless @detained.any?
       @detained.map(&:import).reduce(:+)
     end
 
+    # return count of all taxes.
     def count
       @transferred.count + @detained.count
     end
@@ -48,6 +58,7 @@ module CFDI
       @detained
     end
 
+    # return original string of all transferred taxes.
     def transferred_original_string
       os = []
       @transferred.each do |trans|
@@ -56,6 +67,7 @@ module CFDI
       os
     end
 
+    # return original string of all detained taxes.
     def detained_original_string
       os = []
       @taxes.detained.each do |detaind|

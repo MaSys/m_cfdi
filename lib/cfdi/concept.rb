@@ -1,3 +1,11 @@
+# code -> noIdentificacion
+# name -> Descripcion
+# measure_unit -> Unidad
+# quantity -> Cantidad
+# price -> Precio Unitario
+# importe -> Importe
+
+#
 module CFDI
   # Concepts Class
   class Concept < Base
@@ -15,10 +23,12 @@ module CFDI
       @import = format('%.2f', import).to_f
     end
 
+    # return original string of concept.
     def original_string
       [@quantity, @measure_unit, @code, @name, @price.to_f, @import]
     end
 
+    # return hash with values for invoice xml.
     def to_x
       { cantidad: @quantity, unidad: @measure_unit, noIdentificacion: @code,
         descripcion: @name, valorUnitario: @price, importe: @import }

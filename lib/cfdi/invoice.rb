@@ -1,5 +1,27 @@
+# created_at -> Fecha
+# proof_type -> Tipo Comprobante
+# payment_way -> Forma de Pago
+# payment_conditions -> Condiciones de Pago
+# exchange_rate -> Tipo de Cambio
+# currency -> Moneda
+# payment_method -> Metodo de Pago
+# expedition_place -> Lugar de Expedicion
+# transmitter -> Emisor
+# receptor -> Receptor
+# concepts -> Conceptos
+# series -> Serie
+# stamp -> Sello
+# taxes -> Impuestos
+# canceled -> Cancelada
+# certificate_number -> noCertificado
+# certificate -> Certificado
+# complement -> Complemento
+# payment_account_num -> numCtaPago
+# addenda -> Addenda
+
+#
 module CFDI
-  # Invoice Class
+  # Invoice Class the most important class.
   class Invoice < Base
     attr_accessor :version, :created_at, :proof_type, :payment_way,
                   :payment_conditions, :subtotal, :exchange_rate, :currency,
@@ -8,12 +30,14 @@ module CFDI
                   :taxes, :canceled, :certificate_number, :certificate,
                   :complement, :payment_account_num, :addenda
 
+    # default values.
     @@defaults = {
       tax_rate: 0.16, currency: 'pesos', version: '3.2', subtotal: 0.0,
       exchange_rate: 1, concepts: [], taxes: Taxes.new, proof_type: 'ingreso',
       total: 0.0
     }
 
+    # to change default values.
     def self.configure(options)
       @@defaults = Invoice.rmerge(@@defaults, options)
       @@defaults
@@ -63,9 +87,9 @@ module CFDI
       @addenda = addenda
     end
 
-    # Generate original string from schema
+    # save xml to file and generate original string from schema.
     def original_string_from_xslt
-      # fail 'You have to specify schema!' unless fidio
+      # fail 'You have to specify schema!' unless # TODO: create configuration.
       save_xml
       xml = "#{Rails.root}/#{@transmitter.rfc}-#{@series}-#{@folio}.xml"
       sch = "#{Rails.root}/public/sat/schemas/cadenaoriginal_3_2.xslt"
@@ -84,6 +108,8 @@ module CFDI
       original_string == original_string_from_xslt
     end
 
+    # return array of presented attributes.
+    # if any attribute does not have a value, will not be pushed to the array.
     def attributes
       a = [
         @version, @created_at, @proof_type, @payment_way, @payment_conditions,
@@ -133,6 +159,7 @@ module CFDI
       "||#{params.join('|')}||"
     end # / Original_string
 
+    # return xml of the invoice.
     def to_xml
       ns = {
         'xmlns:cfdi' => 'http://www.sat.gob.mx/cfd/3',
@@ -173,7 +200,7 @@ module CFDI
           ins = xml.doc.root.add_namespace_definition('cfdi', 'http://www.sat.gob.mx/cfd/3')
           xml.doc.root.namespace = ins
 
-          xml.Emisor(@transmitter.ns) do
+          xml.Emisor(@transmitter.to_x) do
             xml.DomicilioFiscal(
               @transmitter.address.to_x.reject { |_, v| !v.present? })
             xml.ExpedidoEn(
@@ -182,7 +209,7 @@ module CFDI
             xml.RegimenFiscal(Regimen: @transmitter.fiscal_regime)
           end
 
-          xml.Receptor(@receptor.ns) do
+          xml.Receptor(@receptor.to_x) do
             xml.Domicilio(@receptor.address.to_x.reject { |_, v| !v.present? })
           end
 
@@ -259,8 +286,9 @@ module CFDI
         end
       end
       @builder.to_xml
-    end # tp_xml
+    end # to_xml
 
+    # validate generated xml with the schema
     def validate_xml
       errors = []
       schema_file = "#{Rails.root}/public/sat/schemas/cfdv32.xsd"
