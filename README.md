@@ -3,7 +3,7 @@ CFDI Mexico.
 
 # Usage:
 
-```
+```ruby
 
 class InvoiceOne
   def initialize(args = {})
