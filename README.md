@@ -7,13 +7,18 @@ CFDI GEM, to generate XML file for invoice, all you have to do, is to send the x
 
 In your gem file:
 ```git
-gem 'cfdi'
+gem 'cfdi' # NOT UPLOADED
 ```
 
 or
 
 ```git
 gem 'cfdi', git: 'https://github.com/MaSys/cfdi.git'
+```
+
+or install it directly from your terminal:
+```git
+gem install cfdi
 ```
 
 # Usage:
