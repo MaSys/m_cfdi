@@ -142,3 +142,9 @@ and then, you can call this class by:
 @in.original_string
 
 ```
+
+to generate your `.pem` file:
+
+```
+openssl pkcs8 -inform DET -in aaa010101aaa.key -passin pass:12345678a -out key.pem
+```
