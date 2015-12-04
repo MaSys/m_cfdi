@@ -1,5 +1,7 @@
 # CFDI
-CFDI Mexico.
+### CFDI Mexico.
+
+CFDI GEM, to generate XML file for invoice, all you have to do, is to send the xml string to your PAC and receive the final xml file then save it.
 
 # Usage:
 
