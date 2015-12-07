@@ -29,5 +29,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec"
-  spec.add_development_dependency 'nokogiri', '~> 1.6'
+  spec.add_dependency 'nokogiri', '~> 1.6'
+  spec.add_dependency 'number_to_words', '~> 1.2'
+  spec.add_dependency 'rqrcode_png', '~> 0.1'
 end
