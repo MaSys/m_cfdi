@@ -165,6 +165,8 @@ and then, you can call this class by:
 )
 @in.xml
 @in.original_string
+@in.total_to_words # will return total in words.
+@in.qr_code # will return 'data:image/png;base64,...'
 
 ```
 
@@ -174,6 +176,11 @@ to generate your `.pem` file:
 openssl pkcs8 -inform DET -in aaa010101aaa.key -passin pass:12345678a -out key.pem
 ```
 
+To parse your stamped xml to classes:
+```ruby
+MCFDI.from_xml(XML_STRING)
+```
+it will return new instance of `MCFDI::Invoice`.
 
 # TODO:
 * Create configuration class.
