@@ -156,7 +156,6 @@ end
 and then, you can call this class by:
 
 ```ruby
-
 @invoice = '{YOUR INVOICE OBJECT}'
 @in = Invoice.new(
   invoice: @invoice, cer: 'CERTIFICATION_FILE_PATH',
@@ -167,7 +166,6 @@ and then, you can call this class by:
 @in.original_string
 @in.total_to_words # will return total in words.
 @in.qr_code # will return 'data:image/png;base64,...'
-
 ```
 
 to generate your `.pem` file:
