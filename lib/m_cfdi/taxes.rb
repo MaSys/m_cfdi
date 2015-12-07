@@ -8,6 +8,7 @@
 module MCFDI
   class Taxes < Base
     attr_accessor :transferred, :detained
+
     def initialize
       @transferred = []
       @detained = []
@@ -33,7 +34,7 @@ module MCFDI
     def transferred=(tax)
       if data.is_a? Array
         data.map do |c|
-          c << Transferred.new(c) unless c.is_a? Tansferred
+          c = Transferred.new(c) unless c.is_a? Tansferred
           @transferred << c
         end
       elsif data.is_a? Hash

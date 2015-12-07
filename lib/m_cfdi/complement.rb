@@ -13,9 +13,10 @@ module MCFDI
     attr_accessor :uuid, :stamp_date, :cfd_stamp, :sat_certificate_num,
                   :sat_stamp, :version
 
-    # Regresa la cadena Original del Timbre Fiscal Digital del SAT
-    #
-    # @return [String] la cadena formada
+    def initialize(args = {})
+      args.each { |key, value| send("#{key}=", value) }
+    end
+
     def string
       a = [@version, @uuid, @stamp_date, @cfd_stamp, @sat_certificate_num]
       "||#{a.join('|')}||"
