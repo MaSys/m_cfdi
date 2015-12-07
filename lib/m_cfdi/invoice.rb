@@ -90,15 +90,17 @@ module MCFDI
     # save xml to file and generate original string from schema.
     def original_string_from_xslt
       # fail 'You have to specify schema!' unless # TODO: create configuration.
-      save_xml
       xml = "#{Rails.root}/#{@transmitter.rfc}-#{@series}-#{@folio}.xml"
+      save_xml(xml)
       sch = "#{Rails.root}/public/sat/schemas/cadenaoriginal_3_2.xslt"
       @original_string_from_xslt ||= `xsltproc #{sch} #{xml}`
+      File.delete(xml) if File.exist?(xml)
+      @original_string_from_xslt
     end
 
     # Save invoice xml to file
-    def save_xml
-      file = File.new("#{@transmitter.rfc}-#{@series}-#{@folio}.xml", 'w+')
+    def save_xml(name)
+      file = File.new(name, 'w+')
       file.write(to_xml)
       file.close
     end
@@ -300,5 +302,22 @@ module MCFDI
       end
       errors
     end # Validate_xml
+
+    # return string with total in words.
+    # Example: ( UN MIL CIENTO SESENTA PESOS 29/100 M.N. )
+    def total_to_words
+      decimal = format('%.2f', @total).split('.')
+      "( #{@total.to_words.upcase} PESOS #{decimal[1]}/100 M.N. )"
+    end
+
+    # return data of qr code image
+    def qr_code
+      t = "?re=#{@transmitter.rfc}"
+      t += "&rr=#{@receptor.rfc}"
+      t += "&tt=#{format('%6f', @total).rjust(17, '0')}"
+      t += "&id=#{@complement.uuid}"
+      img = RQRCode::QRCode.new(t).to_img
+      img.resize(120, 120).to_data_url
+    end
   end
 end
