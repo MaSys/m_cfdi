@@ -187,6 +187,7 @@ it will return new instance of `MCFDI::Invoice`.
 # Contributing
 
 Fork it
+
 1. Create your feature branch (git checkout -b my-new-feature)
 
 2. Commit your changes (git commit -am 'Add some feature')
