@@ -9,6 +9,7 @@ require "m_cfdi/entity"
 require "m_cfdi/key"
 require "m_cfdi/taxes"
 require "m_cfdi/invoice"
+require "m_cfdi/xml"
 
 module MCFDI
   # Your code goes here...
