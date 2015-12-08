@@ -7,7 +7,7 @@ CFDI GEM, to generate XML file for invoice, all you have to do, is to send the x
 
 In your gem file:
 ```bash
-gem 'm_cfdi'
+gem 'm_cfdi', '~> 0.2.1'
 ```
 
 or
