@@ -293,8 +293,10 @@ module MCFDI
     # validate generated xml with the schema
     def validate_xml
       errors = []
-      schema_file = "#{Rails.root}/public/sat/schemas/cfdv32.xsd"
-      xsd = Nokogiri::XML::Schema(File.read(schema_file))
+      # schema_file = "#{Rails.root}/public/sat/schemas/cfdv32.xsd"
+      # xsd = Nokogiri::XML::Schema(File.read(schema_file))
+      schema_file = 'http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv32.xsd'
+      xsd = Nokogiri::XML::Schema(open(schema_file))
       doc = Nokogiri::XML(to_xml)
 
       xsd.validate(doc).each do |error|
