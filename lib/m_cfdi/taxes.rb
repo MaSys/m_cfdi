@@ -71,7 +71,7 @@ module MCFDI
     # return original string of all detained taxes.
     def detained_original_string
       os = []
-      @taxes.detained.each do |detaind|
+      @detained.each do |detaind|
         os += detaind.original_string
       end
       os
