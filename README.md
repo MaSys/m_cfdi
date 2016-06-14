@@ -7,7 +7,7 @@ CFDI GEM, to generate XML file for invoice, all you have to do, is to send the x
 
 In your gem file:
 ```bash
-gem 'm_cfdi', '~> 0.2.1'
+gem 'm_cfdi', '~> 0.3.0'
 ```
 
 or
@@ -179,6 +179,16 @@ To parse your stamped xml to classes:
 MCFDI.from_xml(XML_STRING)
 ```
 it will return new instance of `MCFDI::Invoice`.
+
+
+You can also do:
+```ruby
+MCFDI.proof_types
+MCFDI.payment_methods
+MCFDI.payment_ways
+```
+it will return array of values.
+
 
 # TODO:
 * Create configuration class.
