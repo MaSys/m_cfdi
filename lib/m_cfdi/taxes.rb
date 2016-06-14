@@ -31,7 +31,7 @@ module MCFDI
       @transferred.count + @detained.count
     end
 
-    def transferred=(tax)
+    def transferred=(data)
       if data.is_a? Array
         data.map do |c|
           c = Transferred.new(c) unless c.is_a? Tansferred
@@ -45,7 +45,7 @@ module MCFDI
       @transferred
     end
 
-    def detained=(tax)
+    def detained=(data)
       if data.is_a? Array
         data.map do |c|
           c << Detained.new(c) unless c.is_a? Detained
