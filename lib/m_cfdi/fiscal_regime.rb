@@ -1,0 +1,12 @@
+module MCFDI
+  def self.fiscal_regime
+    [
+      'ASALARIADOS',
+      'HONORARIOS (SERVICIOS PROFESIONALES)',
+      'ARRENDAMIENTO DE INMUEBLES',
+      'ACTIVIDAD EMPRESARIAL',
+      'INTERMEDIO',
+      'RÉGIMEN DE INCORPORACIÓN FISCAL'
+    ]
+  end
+end
