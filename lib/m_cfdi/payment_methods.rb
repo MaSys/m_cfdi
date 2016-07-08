@@ -1,16 +1,16 @@
 module MCFDI
   def self.payment_methods
     [
-      ['Efectivo', 'Efectivo'],
-      ['Cheque', 'Cheque'],
-      ['Transferencia electrónica de fondos', 'Transferencia electrónica de fondos'],
-      ['Tarjetas de crédito', 'Tarjetas de crédito'],
-      ['Monederos electrónicos', 'Monederos electrónicos'],
-      ['Dinero electrónico', 'Dinero electrónico'],
-      ['Vales de despensa', 'Vales de despensa'],
-      ['Tarjeta de Débito', 'Tarjeta de Débito'],
-      ['Tarjeta de Servicio', 'Tarjeta de Servicio'],
-      ['Otros', 'Otros']
+      ['Efectivo', '01'],
+      ['Cheque', '02'],
+      ['Transferencia electrónica de fondos', '03'],
+      ['Tarjetas de crédito', '04'],
+      ['Monederos electrónicos', '05'],
+      ['Dinero electrónico', '06'],
+      ['Vales de despensa', '08'],
+      ['Tarjeta de Débito', '28'],
+      ['Tarjeta de Servicio', '29'],
+      ['Otros', '99']
     ]
   end
 end
